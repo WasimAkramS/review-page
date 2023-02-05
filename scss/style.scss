@@ -12,16 +12,17 @@ body {
 }
 
 .container {
-    width: 500px;
+    max-width: 500px;
+    height: 480px;
     padding: 1em;
-    background-color: $clr-white;
+    background-color: white;
     color: $clr-gray;
     text-align: center;
-    border-radius: .7em;
+    border-radius: .5em;
     box-shadow: 5px 5px 10px $clr-gray;
 }
 
-/*******
+/*************
 NOTE:
 If two page elements overlap and no z-index value is given (or both elements have the same z-index value), the element placed last in the HTML code will appear on top of the element placed before it in the code. Also, elements that are given a position value (other than static, the default value) appear above elements without a position in the stacking.
 Source: https://blog.hubspot.com/website/z-index#:~:text=Since%20the%20default%20z%2Dindex,a%20set%20z%2Dindex%20value.
@@ -103,14 +104,22 @@ h1 {
 //1. The values capitalize and uppercase works in different ways.
 #name {
     text-transform: capitalize;
+    color: $clr-black;
+    margin-bottom: .3em;
 }
 
 #designation {
     text-transform: uppercase;
+    color: $clr-blue;
+    margin-bottom: .5em;
 }
 
-p {
-    margin-bottom: 1em;
+p#review{
+   // display: block;
+    min-height: 6rem;   // As the height of the paragraph changes, the height of the container also changes. So it is necessary to fix the height anyway to avoid the container height change.
+    padding: .3em;
+    margin-bottom: .3em;
+    //border: 1px solid black;
 }
 
 .buttons button{
@@ -118,17 +127,20 @@ p {
     background-color: white;
     color: $clr-blue;
     font-size: 1.2rem;
-    margin: 1em;
+    padding: .5em;
+    margin-bottom: .3em;
+    cursor: pointer;
 } 
 
 .random-review {
     background-color: $clr-light-blue;
-    opacity: .6;
+    //opacity: .6;
     font-size: 1rem;
     padding: .3em .8em;
     border: 2px solid $clr-blue;
     border-radius: .5em;
     color: $clr-blue;
+    cursor: pointer;
 }
 
 
