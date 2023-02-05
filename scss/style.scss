@@ -1,0 +1,134 @@
+@import "config";
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Roboto:400,700&display=swap");
+
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: $clr-light-blue;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 500px;
+    padding: 1em;
+    background-color: $clr-white;
+    color: $clr-gray;
+    text-align: center;
+    border-radius: .7em;
+    box-shadow: 5px 5px 10px $clr-gray;
+}
+
+/*******
+NOTE:
+If two page elements overlap and no z-index value is given (or both elements have the same z-index value), the element placed last in the HTML code will appear on top of the element placed before it in the code. Also, elements that are given a position value (other than static, the default value) appear above elements without a position in the stacking.
+Source: https://blog.hubspot.com/website/z-index#:~:text=Since%20the%20default%20z%2Dindex,a%20set%20z%2Dindex%20value.
+
+*************/
+
+.image-container {          
+    width: 150px;          
+    height: 150px;
+    margin: 1em auto;
+    position: relative;
+    //padding: 1em;
+     //border-radius: 50%;
+     //border: 1px solid black;
+}
+
+//   HEADACHES I GOT:
+//1. Don't set width and height directly to img element. It leads to distorted picture. 
+//2. Instead, wrap it with div and set width and height to that div.
+//3. then Use (Object-fit: cover) to the img element.
+//4. Don't do border-radius to the wrapping div of the img, which won't give the expected result
+//5. Because the image will overflow the container. Instead, do border-radius directly on the
+//    img element. This will give you the expected border radius.
+img {
+    //width: 150px;
+    //height: 150px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    position: relative; 
+}
+// I can't find the reason why John Smilga applied relative position to img element. 
+// After the long research I realised it is all about z-index stacking.
+//The note in line 20 is the reason for setting relative position to this above child element (i.e.img).
+// Here, before content and after content are getting position: absolute; so they come to front in stacking.
+// In result the img element which is also a child of the image-container goes to bottom of the stacking. So it gets covered. So it should be given position property to compete with the other children's stacking environment. 
+
+.image-container::before {
+    content: "";
+    background-color: $clr-blue;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: -0.25rem;
+    right: -0.5rem;
+    border-radius: 50%;
+}
+
+.image-container::after {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f10e";
+    width: 2.5rem;
+    height: 2.5rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    background-color: $clr-blue;
+    color: white;
+   // padding: .6em;
+   display: grid;
+   place-items: center;
+}
+
+h1 {
+    display: inline-block;
+    padding: .3em 0;
+    margin-bottom: 1em;
+    border-bottom: 3px solid $clr-blue;
+}
+
+.title {
+   text-align: center;
+}
+
+
+//1. The values capitalize and uppercase works in different ways.
+#name {
+    text-transform: capitalize;
+}
+
+#designation {
+    text-transform: uppercase;
+}
+
+p {
+    margin-bottom: 1em;
+}
+
+.buttons button{
+    border: none;
+    background-color: white;
+    color: $clr-blue;
+    font-size: 1.2rem;
+    margin: 1em;
+} 
+
+.random-review {
+    background-color: $clr-light-blue;
+    opacity: .6;
+    font-size: 1rem;
+    padding: .3em .8em;
+    border: 2px solid $clr-blue;
+    border-radius: .5em;
+    color: $clr-blue;
+}
+
+

@@ -1,0 +1,24 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Roboto:400,700&display=swap");
+
+$ff-primary: 'Roboto', sans-serif;
+$ff-secondary: 'Open-sans', sans-serif;
+$clr-light-blue:  hsl(210, 36%, 96%);
+$clr-white: #fff;
+$clr-blue: hsl(205, 78%, 60%);
+$clr-gray: hsl(210, 22%, 49%);
+$clr-black:  hsl(209, 61%, 16%);
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+img,
+picture {
+    display: block;
+    max-width: 100%;
+}
+
