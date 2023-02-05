@@ -57,7 +57,7 @@ img {
 }
 // I can't find the reason why John Smilga applied relative position to img element. 
 // After the long research I realised it is all about z-index stacking.
-//The note in line 20 is the reason for setting relative position to this above child element (i.e.img).
+//The note in line 26 is the reason for setting relative position to this above child element (i.e.img).
 // Here, before content and after content are getting position: absolute; so they come to front in stacking.
 // In result the img element which is also a child of the image-container goes to bottom of the stacking. So it gets covered. So it should be given position property to compete with the other children's stacking environment. 
 
